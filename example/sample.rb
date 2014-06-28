@@ -1,6 +1,12 @@
 require 'bitbucket/hooks'
+require 'pp'
 
-event = Bitbucket::Hooks::Event.new
-server = Bitbucket::Hooks::Server.new(event)
+hooks = Bitbucket::Hooks.set do |hook|
+  hook.port = 4567
+  hook.on_push do |request|
+    pp request
+  end
+end
 
-Rack::Handler::WEBrick.run(server)
+
+Rack::Handler::WEBrick.run(hooks.server, :Port => hooks.server)
