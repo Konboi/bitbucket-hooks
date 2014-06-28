@@ -32,7 +32,7 @@ module Bitbucket
       def parse_param(param)
         param = URI.unescape(param)
 
-        param.gsub("\\\"", "\"")
+        param.gsub('\"', '"')
       end
     end
   end
