@@ -1,5 +1,5 @@
 require 'rack'
-require 'uri'
+require 'json'
 
 module Bitbucket
   class Hooks
@@ -19,7 +19,7 @@ module Bitbucket
         end
 
         if req.request_method == 'POST' and payload
-          @event.on('push', payload)
+          @event.on('push', JSON.parse(payload))
           [200, [], ['OK']]
         else
           [400, [], ['BAD REQUEST']]
