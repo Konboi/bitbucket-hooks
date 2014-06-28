@@ -8,5 +8,4 @@ hooks = Bitbucket::Hooks.set do |hook|
   end
 end
 
-
-Rack::Handler::WEBrick.run(hooks.server, :Port => hooks.server)
+Rack::Handler::WEBrick.run(hooks.server, :Port => hooks.port)
