@@ -2,7 +2,7 @@ require 'rack'
 require 'uri'
 
 module Bitbucket
-  module Hooks
+  class Hooks
     class Server
       attr_reader :event
 

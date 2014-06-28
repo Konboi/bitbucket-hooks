@@ -1,5 +1,5 @@
 module Bitbucket
-  module Hooks
+  class Hooks
     class Event
       attr_accessor :events
 

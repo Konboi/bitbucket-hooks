@@ -3,7 +3,7 @@ require "bitbucket/hooks/server"
 require "bitbucket/hooks/event"
 
 module Bitbucket
-  module Hooks
+  class Hooks
     attr_accessor :event, :server, :port
 
     def initialize(options = {})
