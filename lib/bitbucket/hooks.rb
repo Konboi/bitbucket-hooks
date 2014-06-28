@@ -26,21 +26,5 @@ module Bitbucket
     def on_push(&blk)
       @event.set('push', &blk)
     end
-
-    def on_pull_request(&blk)
-      @event.set('pull_request', &blk)
-    end
-
-    def on_commit_comment(&blk)
-      @event.set('commit_comment', &blk)
-    end
-
-    def on_issues(&blk)
-      @event.set('issues', &blk)
-    end
-
-    def on_issue_comment(&blk)
-      @event.set('issue_comment', &blk)
-    end
   end
 end
