@@ -1,4 +1,4 @@
-require ''
+require 'rack'
 
 module Bitbucket
   module Hooks
