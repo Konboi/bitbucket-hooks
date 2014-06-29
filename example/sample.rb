@@ -1,7 +1,9 @@
 require 'bitbucket/hooks'
 require 'pp'
 
-def puuush
+def puuush(req)
+  pp req.class
+  pp req
 end
 
 hooks = Bitbucket::Hooks.set do |hook|
