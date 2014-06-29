@@ -19,7 +19,7 @@ module Bitbucket
           [400, [], ['BAD REQUEST']]
         end
         if req.request_method == 'POST' and payload
-          @event.on('push', payload)
+          @event.on('push', req)
           [200, [], ['OK']]
         else
           [400, [], ['BAD REQUEST']]
