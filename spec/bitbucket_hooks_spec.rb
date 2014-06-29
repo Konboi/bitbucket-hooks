@@ -3,17 +3,16 @@ require "rack/test"
 require "bitbucket/hooks"
 
 
-$counter      = 0
-$pull_request = ''
+$counter = 0
+$string  = ''
 
 def push
   $counter = $counter + 1
 end
 
-def p_r(msg = '')
-  $pull_request = msg
+def push2
+  $string = 'hogehoge'
 end
-
 
 describe 'Bitbucket::Hooks' do
   include Rack::Test::Methods
@@ -22,6 +21,7 @@ describe 'Bitbucket::Hooks' do
     hooks = Bitbucket::Hooks.set do |hook|
       hook.on_push do |request|
         push
+        push2
       end
     end
     hooks.server
@@ -34,6 +34,7 @@ describe 'Bitbucket::Hooks' do
       expect(last_response.status).to eq(200)
       expect(last_response.body).to eq("OK")
       expect($counter).to eq(1)
+      expect($string).to eq('hogehoge')
     end
   end
 end
